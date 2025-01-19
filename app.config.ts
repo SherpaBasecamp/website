@@ -40,7 +40,7 @@ export default defineAppConfig({
       showTitle: true,
       editLink: {
         enable: true,
-        pattern: 'https://github.com/SherpaBasecamp/website/edit/main/content/:path',
+        pattern: 'https://github.com/SherpaBasecamp/website/edit/master/content/:path',
         text: 'Edit on GitHub',
         icon: 'lucide:square-pen',
         placement: ['docsFooter', 'toc'],
