@@ -38,6 +38,13 @@ export default defineAppConfig({
     main: {
       breadCrumb: true,
       showTitle: true,
+      editLink: {
+        enable: true,
+        pattern: 'https://github.com/SherpaBasecamp/website/edit/main/content/:path',
+        text: 'Edit on GitHub',
+        icon: 'lucide:square-pen',
+        placement: ['docsFooter', 'toc'],
+      },
     },
     footer: {
       credits: "Copyright AndreiCurelaru © 2025",
