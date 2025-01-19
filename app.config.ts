@@ -26,7 +26,7 @@ export default defineAppConfig({
         },
         {
           icon: "fa6-brands:github",
-          to: "https://github.com/SherpaBasecamp/sherpa",
+          to: "https://github.com/SherpaCLI/sherpa",
           target: "_blank",
         },
       ],
@@ -40,7 +40,7 @@ export default defineAppConfig({
       showTitle: true,
       editLink: {
         enable: true,
-        pattern: 'https://github.com/SherpaBasecamp/website/edit/main/content/:path',
+        pattern: 'https://github.com/SherpaCLI/website/edit/main/content/:path',
         text: 'Edit on GitHub',
         icon: 'lucide:square-pen',
         placement: ['docsFooter', 'toc'],
@@ -56,7 +56,7 @@ export default defineAppConfig({
         },
         {
           icon: "fa6-brands:github",
-          to: "https://github.com/SherpaBasecamp/sherpa",
+          to: "https://github.com/SherpaCLI/sherpa",
           target: "_blank",
         },
       ],
@@ -68,7 +68,7 @@ export default defineAppConfig({
         {
           title: "Star on GitHub",
           icon: "lucide:star",
-          to: "https://github.com/SherpaBasecamp/sherpa",
+          to: "https://github.com/SherpaCLI/sherpa",
           target: "_blank",
         },
         {
