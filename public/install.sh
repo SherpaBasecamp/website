@@ -54,6 +54,14 @@ _install_cli_tools() {
     echo "v Aliasman is already installed."
   fi
 
+  # Check if WatchExec is installed
+  if ! command -v watchexec &>/dev/null; then
+    echo "x Watchexec not found, installing..."
+    webi watchexec@stable
+  else
+    echo "v WatchExec is already installed."
+  fi
+
   # Check if Shellcheck is installed
   if ! command -v shellcheck &>/dev/null; then
     echo "x Shellcheck not found, installing..."
