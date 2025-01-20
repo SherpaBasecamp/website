@@ -164,7 +164,7 @@ _add_to_path() {
 
 _aliases() {
   # Add basic aliases with Aliasman
-  aliasman sh sherpa
+  aliasman s sherpa
   aliasman sdd cd "$HOME"/.sherpa
   aliasman scd cd "$HOME"/sherpa
   aliasman boxes cd "$HOME"/sherpa/boxes
