@@ -6,16 +6,16 @@ navigation: false
 ::hero
 ---
 announcement:
-  title: 'Release v0.3.0'
+  title: 'Road to v0.4.0'
   icon: '🎉'
-  to: /blog/articles/v030
+  to: /blog/changelog/road-to-040
   target: \_blank
 actions:
   - name: Get Started
     to: /getting-started/introduction
   - name: GitHub
     variant: outline
-    to: https://github.com/SherpaBasecamp/sherpa
+    to: https://github.com/SherpaCLI/sherpa
     leftIcon: 'lucide:github'
 ---
 
