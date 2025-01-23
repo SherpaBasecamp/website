@@ -1,0 +1,7 @@
+title: Functions
+icon: lucide:braces
+navigation.redirect: /functions/toolbox
+navBadges:
+  - value: New
+    type: lime
+    size: sm

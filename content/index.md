@@ -6,9 +6,9 @@ navigation: false
 ::hero
 ---
 announcement:
-  title: 'Road to v0.4.0'
+  title: 'Release v0.4.0'
   icon: '🎉'
-  to: /blog/changelog/road-to-040
+  to: /blog/changelog/v040
   target: \_blank
 actions:
   - name: Get Started
