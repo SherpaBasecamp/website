@@ -6,9 +6,9 @@ navigation: false
 ::hero
 ---
 announcement:
-  title: 'Release v0.4.0'
+  title: 'Release v0.5.0'
   icon: '🎉'
-  to: /blog/changelog/v040
+  to: /blog/changelog/v050
   target: \_blank
 actions:
   - name: Get Started
