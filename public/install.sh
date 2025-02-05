@@ -1,137 +1,126 @@
 #!/usr/bin/env bash
+# shellcheck disable=1090,1091,2154
 
 #
-#  Testing things out with fake install destination.
-#  Do not use that script for real Sh:erpa install yet.
+#  Testing things out.
 #
 
-source "../lib/std/fmt.sh"
-
-# TODO: Import basecamp & std/fmt
-# TODO: Use colors & Icons for output
-# TODO: !More safety checks per install
+fmt="https://raw.githubusercontent.com/SherpaCLI/sherpa/refs/heads/master/lib/std/fmt.sh"
+# Source std/fmt
+. <(curl -s "$fmt")
 
 _install_cli_tools() {
 
   # Check if webi is installed
   if ! command -v webi &>/dev/null; then
-    p "${txtRed}${strong}x${x} Webi not found, installing..."
-    curl -sS https://webinstall.dev/webi | bash
+    p "❌ Webi not found, installing..."
+    curl -sS https://webinstall.dev/webi | bash &>/dev/null
   else
-    p "${txtRed}${strong}v${x} Webi is already installed."
+    p "✅  Webi is installed."
   fi
 
   # Check if Git is installed
   if ! command -v git &>/dev/null; then
-    echo "x Git not found, installing..."
-    webi git@stable
+    echo "❌ Git not found, installing..."
+    webi git@stable &>/dev/null
   else
-    echo "v Git is already installed."
+    p "✅ Git is installed."
   fi
 
   # Check if Cargo is installed
   if ! command -v cargo &>/dev/null; then
-    echo "x Cargo not found, installing..."
-    curl -sS https://webi.sh/rustlang | sh
+    echo "❌ Cargo not found, installing..."
+    curl -sS https://webi.sh/rustlang | sh &>/dev/null
     source "$HOME/.config/envman/PATH.env"
   else
-    echo "v Cargo is already installed."
+    echo "✅ Cargo is installed."
   fi
 
   # Check if Pathman is installed
   if ! command -v pathman &>/dev/null; then
-    echo "x Pathman not found, installing..."
-    webi pathman@stable
+    echo "❌ Pathman not found, installing..."
+    webi pathman@stable &>/dev/null
   else
-    echo "v Pathman is already installed."
+    echo "✅ Pathman is installed."
   fi
 
   # Check if Aliasman is installed
   if ! command -v aliasman &>/dev/null; then
-    echo "x Aliasman not found, installing..."
-    webi aliasman@stable
+    echo "❌ Aliasman not found, installing..."
+    webi aliasman@stable &>/dev/null
   else
-    echo "v Aliasman is already installed."
+    echo "✅ Aliasman is installed."
   fi
 
   # Check if WatchExec is installed
   if ! command -v watchexec &>/dev/null; then
-    echo "x Watchexec not found, installing..."
-    webi watchexec@stable
+    echo "❌ Watchexec not found, installing..."
+    webi watchexec@stable &>/dev/null
   else
-    echo "v WatchExec is already installed."
+    echo "✅ WatchExec is installed."
   fi
 
   # Check if Shellcheck is installed
   if ! command -v shellcheck &>/dev/null; then
-    echo "x Shellcheck not found, installing..."
-    webi shellcheck@stable
+    echo "❌ Shellcheck not found, installing..."
+    webi shellcheck@stable &>/dev/null
   else
-    echo "v Shellcheck is already installed."
+    echo "✅ Shellcheck is installed."
   fi
 
   # Check if shfmt is installed
   if ! command -v shfmt &>/dev/null; then
-    echo "x Shfmt not found, installing..."
-    webi shfmt@stable
+    echo "❌ Shfmt not found, installing..."
+    webi shfmt@stable &>/dev/null
   else
-    echo "v Shfmt is already installed."
+    echo "✅ Shfmt is installed."
   fi
 
   # Check if Pandoc is installed
   if ! command -v pandoc &>/dev/null; then
-    echo "x Pandoc not found, installing..."
-    webi pandoc@stable
+    echo "❌ Pandoc not found, installing..."
+    webi pandoc@stable &>/dev/null
   else
-    echo "v Pandoc is already installed."
+    echo "✅ Pandoc is installed."
   fi
 
   # Check if yq is installed
   if ! command -v yq &>/dev/null; then
-    echo "x Yq not found, installing..."
-    webi yq@stable
+    echo "❌ Yq not found, installing..."
+    webi yq@stable &>/dev/null
   else
-    echo "v Yq is already installed."
+    echo "✅ Yq is installed."
   fi
 
   # Check if jq is installed
   if ! command -v jq &>/dev/null; then
-    echo "x Jq not found, installing..."
-    webi jq@stable
+    echo "❌ Jq not found, installing..."
+    webi jq@stable &>/dev/null
   else
-    echo "v Jq is already installed."
+    echo "✅ Jq is installed."
   fi
 
   # Check if bashunit is installed
   if ! command -v bashunit &>/dev/null; then
-    echo "x Bashunit not found, installing..."
-    curl -s https://bashunit.typeddevs.com/install.sh | bash
+    echo "❌ Bashunit not found, installing..."
+    curl -s https://bashunit.typeddevs.com/install.sh | bash &>/dev/null
   else
-    echo "x Bashunit is already installed."
+    echo "✅ Bashunit is installed."
   fi
 
   # Check if shdoc is installed
   if ! command -v shdoc &>/dev/null; then
-    echo "x Shdoc not found, installing..."
-    git clone --recursive https://github.com/reconquest/shdoc /tmp/shdoc
+    echo "❌ Shdoc not found, installing..."
+    git clone --recursive https://github.com/reconquest/shdoc /tmp/shdoc &>/dev/null
     cd /tmp/shdoc || return
     sudo make install
     rm -rf /tmp/shdoc
   else
-    echo "v Shdoc is already installed."
+    echo "✅ Shdoc is installed."
   fi
 
-  # Check if bashdoc is installed
-  if ! command -v bashdoc &>/dev/null; then
-    echo "x Bashdoc not found, installing..."
-    cargo install bashdoc
-  else
-    echo "v Bashdoc is already installed."
-  fi
-
-  # Do the same for:
-  # - viu
-  # - autoexec
+  br
+  p "${btnSuccess} Done! ${x} The tools are installed"
 }
 
 _clone_repo() {
@@ -157,6 +146,8 @@ _clone_repo() {
   cp -r "${HOME}/.sherpa/templates/SCD" "${HOME}/sherpa"
   [[ -d "${HOME}/.sherpa" ]] && echo "SCD Installed!"
 
+  br
+  p "${btnSuccess} Done! ${x} Directories are created"
 }
 
 _add_to_path() {
@@ -168,6 +159,9 @@ _add_to_path() {
   else
     echo "$HOME/.sherpa/bin directory does not exist."
   fi
+
+  br
+  p "${btnSuccess} Done! ${x} The path is clear"
 }
 
 _aliases() {
@@ -177,9 +171,39 @@ _aliases() {
   aliasman scd cd "$HOME"/sherpa
   aliasman boxes cd "$HOME"/sherpa/boxes
   aliasman libs cd "$HOME"/sherpa/libs
+
+  br
+  p "${btnSuccess} Done! ${x} Aliases are created"
+
 }
 
+h1 " Setting up the Sh:erpa Basecamp"
+hr "+" "-"
+p "Grab a cup of tea, by the campfire..."
+br
+
+h2 "Unloading the tools"
 _install_cli_tools
+br
+
+h2 "Cloning the Repo"
 _clone_repo
+br
+
+h2 "Adding to the Path"
 _add_to_path
+br
+
+h2 "Creating first aliases"
 _aliases
+br
+
+echo ""
+echo "   _____ __                            "
+echo "  / ___// /_  _ ___  _________  ____ _ "
+echo "  \__ \/ __ \(_) _ \/ ___/ __ \/ __ */ "
+echo " ___/ / / / / /  __/ /  / /_/ / /_/ /  "
+echo "/____/_/ /_(_)\___/_/  / .___/\__,_/   "
+echo "                      /_/              "
+echo " Welcome to the Bash Adventure!        "
+echo ""
