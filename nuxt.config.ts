@@ -4,4 +4,7 @@ export default defineNuxtConfig({
   devtools: { enabled: false  },
   extends: ['shadcn-docs-nuxt'],
   compatibilityDate: '2024-07-06',
+  modules: [
+    '@nuxthq/studio'
+  ]
 });
